@@ -1,0 +1,27 @@
+    # hexagon
+    obstacle = [0.4 * np.array([[1., 0., 0], [0.5, np.sqrt(3)/2, 0], [-0.5, np.sqrt(3)/2, 0],
+                                [-1., 0., 0], [-0.5, -np.sqrt(3)/2, 0], [0.5, -np.sqrt(3)/2, 0], [1.,  0., 0]])]
+    
+    # diamond and square hallway in middle.
+    obstacle = [ 1* np.array([[1.0, 0.0, 0], [0.5, 0.5, 0],[-0.5, 0.5, 0], [-1.0, 0.0, 0],[1.0, 0.0, 0]]),
+                               1 * np.array([[0.5, -0.5, 0],[0.5, -1.0, 0], [-0.5, -1.0, 0],[-0.5, -0.5, 0],[0.5, -0.5, 0]])]
+    
+    # Diamond and long hallway
+        obstacle = [ 1* np.array([[1.0, 0.0, 0], [0.5, 0.5, 0],[-0.5, 0.5, 0], [-1.0, 0.0, 0],[1.0, 0.0, 0]]),
+        1 * np.array([[1, -0.6, 0],[1, -1.0, 0], [-1, -1.0, 0],[-1, -0.6, 0],[1, -0.6, 0]])]
+
+    r = 0.33 # Vary for cirle size, used 0.5, 0.33 and 0.66
+    circle_points = np.linspace(0,2*np.pi,1000)
+    #One circle
+    obstacle = [np.array([r*np.cos(circle_points),r*np.sin(circle_points)]).T]
+    # Two circle, times the x*np.ones to move the origo of second circle, possible to add offset to other circle as well.
+    obstacle = [np.array([r*np.cos(circle_points),r*np.sin(circle_points)]+0.5*np.ones([2,1000])).T,
+     np.array([r*np.cos(circle_points),r*np.sin(circle_points)]).T]
+
+    #side = 2 * r  # Length of the square's side
+    r = 0.5
+    square_points = np.array([[-r, -r],[r, -r],[r, r],[-r, r],[-r, -r]])
+    obstacle = [square_points]
+    
+    # Pizza-slice
+    obstacle = [np.array([[1,0,0],[1/np.sqrt(2),1/np.sqrt(2),0],[0,1,0],[-1/np.sqrt(2),-1/np.sqrt(2),0],[1,0,0]])]
